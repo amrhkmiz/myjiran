@@ -130,6 +130,8 @@ const statusMeta: Record<HomeStatus, { label: string; tone: "success" | "warning
 
 function HomeTab() {
   const { homeStatus, setHomeStatus, vacation, setVacation, houses } = useJiran();
+  const iconCls = { success: "bg-success/15 text-success", warning: "bg-warning/20 text-warning-foreground", info: "bg-info/15 text-info" };
+  const checkCls = { success: "text-success", warning: "text-warning-foreground", info: "text-info" };
   const ring = { success: "border-success bg-success/10", warning: "border-warning bg-warning/15", info: "border-info bg-info/10" };
   return (
     <>
@@ -140,9 +142,9 @@ function HomeTab() {
           const m = statusMeta[s];
           return (
             <button key={s} onClick={() => setHomeStatus(s)} className={cn("flex w-full items-center gap-3 rounded-2xl border-2 bg-card p-3 text-left transition", homeStatus === s ? ring[m.tone] : "border-transparent")}>
-              <div className={cn("rounded-xl p-2", `bg-${m.tone}/15 text-${m.tone}`)}><m.icon className="h-5 w-5" /></div>
+              <div className={cn("rounded-xl p-2", iconCls[m.tone])}><m.icon className="h-5 w-5" /></div>
               <div className="flex-1"><p className="text-sm font-bold">{m.label}</p><p className="text-xs text-muted-foreground">{m.desc}</p></div>
-              {homeStatus === s && <CheckCircle2 className={`h-5 w-5 text-${m.tone}`} />}
+              {homeStatus === s && <CheckCircle2 className={cn("h-5 w-5", checkCls[m.tone])} />}
             </button>
           );
         })}
