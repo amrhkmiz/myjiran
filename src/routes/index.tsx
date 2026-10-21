@@ -50,8 +50,9 @@ function App() {
       </header>
 
       <main className="mx-auto flex max-w-5xl items-start justify-center gap-6 sm:p-6">
-        <div className="relative h-[calc(100vh-92px)] w-full max-w-[420px] overflow-hidden bg-background sm:h-[820px] sm:rounded-[2.5rem] sm:border-8 sm:border-foreground sm:shadow-2xl">
-          <div className="flex items-center justify-between border-b bg-card px-4 py-2 text-xs">
+        <div className="relative h-[calc(100vh-92px)] w-full max-w-[420px] overflow-hidden bg-background sm:h-[820px] sm:rounded-[2.5rem] sm:border-8 sm:border-foreground sm:shadow-elegant">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-6 w-32 -translate-x-1/2 rounded-b-3xl bg-foreground sm:block" />
+          <div className="flex items-center justify-between border-b bg-card/90 px-4 py-2 text-xs backdrop-blur">
             <span className="font-semibold">{roles.find((r) => r.id === role)!.sub}</span>
             <Pill tone="success"><ShieldCheck className="h-3 w-3" />Elmina Green · Precinct A</Pill>
           </div>
