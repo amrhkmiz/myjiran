@@ -8,4 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
-- JiranHub demo state lives in one React context (src/lib/jiran-store.tsx), no backend: the three role views must share live state instantly for the hackathon demo. AI features are simulated client-side.
+- MyJiran demo state lives in one React context (src/lib/jiran-store.tsx), no backend: the three role views must share live state instantly for the hackathon demo. AI features are simulated client-side.
