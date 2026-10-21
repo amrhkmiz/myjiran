@@ -34,18 +34,18 @@ function App() {
   const { role, setRole, setOnboardOpen } = useJiran();
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-3 py-2">
-          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-primary p-1 text-primary-foreground"><ShieldCheck className="h-4 w-4" /></span>JiranHub<span className="text-primary">AI</span></div>
+          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span>JiranHub<span className="text-primary">AI</span></div>
           <span className="hidden text-[11px] font-semibold text-muted-foreground sm:inline">Hackathon Demo Role Switcher</span>
           <div className="order-last flex w-full gap-1 rounded-xl bg-muted p-1 sm:order-none sm:ml-auto sm:w-auto">
             {roles.map((r) => (
-              <button key={r.id} onClick={() => setRole(r.id)} className={cn("flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition", role === r.id ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground")}>
+              <button key={r.id} onClick={() => setRole(r.id)} className={cn("flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition", role === r.id ? "bg-gradient-to-b from-primary to-primary/85 text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground")}>
                 <r.icon className="h-3.5 w-3.5" />{r.label}
               </button>
             ))}
           </div>
-          <button onClick={() => setOnboardOpen(true)} className="ml-auto flex items-center gap-1 rounded-lg border border-primary/40 px-2 py-1.5 text-xs font-semibold text-primary sm:ml-0"><UserPlus className="h-3.5 w-3.5" />Verify New Resident</button>
+          <button onClick={() => setOnboardOpen(true)} className="ml-auto flex items-center gap-1 rounded-lg border border-primary/40 px-2 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/5 sm:ml-0"><UserPlus className="h-3.5 w-3.5" />Verify New Resident</button>
         </div>
       </header>
 
