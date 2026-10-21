@@ -29,10 +29,10 @@ export function ResidentView() {
         {tab === "visitor" && <VisitorTab />}
         {tab === "social" && <SocialTab />}
       </div>
-      <nav className="absolute inset-x-0 bottom-0 grid grid-cols-4 border-t bg-card/95 backdrop-blur">
+      <nav className="absolute inset-x-0 bottom-0 grid grid-cols-4 border-t bg-card/90 backdrop-blur-md">
         {tabs.map((t) => (
           <button key={t.id} onClick={() => setTab(t.id)} className={cn("flex flex-col items-center gap-0.5 py-2.5 text-[11px] font-semibold transition", tab === t.id ? "text-primary" : "text-muted-foreground")}>
-            <t.icon className="h-5 w-5" />{t.label}
+            <span className={cn("rounded-full px-3.5 py-0.5 transition-all", tab === t.id && "bg-primary/10")}><t.icon className="h-5 w-5" /></span>{t.label}
           </button>
         ))}
       </nav>
@@ -53,7 +53,8 @@ function AlertsTab() {
 
   return (
     <>
-      <div className="rounded-2xl bg-gradient-to-br from-primary to-primary/80 p-4 text-primary-foreground">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-glow p-4 text-primary-foreground shadow-elegant">
+        <div className="pointer-events-none absolute -right-8 -top-12 h-36 w-36 rounded-full bg-primary-foreground/15 blur-2xl" />
         <p className="text-xs opacity-80">Your precinct</p>
         <h1 className="text-lg font-bold">Elmina Green Precinct A</h1>
         <p className="mt-1 flex items-center gap-1 text-xs"><ShieldCheck className="h-4 w-4" />100% Verified Residents · 248 homes</p>

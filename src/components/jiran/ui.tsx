@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import type { ReactNode } from "react";
 
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn("rounded-2xl border bg-card p-4 shadow-sm", className)}>{children}</div>;
+  return <div className={cn("rounded-2xl border bg-card p-4 shadow-card transition-shadow", className)}>{children}</div>;
 }
 
 export function Pill({ tone = "muted", children }: { tone?: "primary" | "success" | "warning" | "info" | "muted"; children: ReactNode }) {
@@ -20,8 +20,8 @@ export function Pill({ tone = "muted", children }: { tone?: "primary" | "success
 export function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/40 sm:items-center" onClick={onClose}>
-      <div className="max-h-[90vh] w-full max-w-md animate-in slide-in-from-bottom-8 overflow-y-auto rounded-t-3xl bg-background p-5 sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/50 backdrop-blur-sm sm:items-center" onClick={onClose}>
+      <div className="max-h-[90vh] w-full max-w-md animate-in slide-in-from-bottom-8 overflow-y-auto rounded-t-3xl bg-background p-5 shadow-elegant sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
         <div className="mb-4 flex items-center justify-between">
           <h3 className="text-lg font-bold">{title}</h3>
           <button onClick={onClose} aria-label="Close" className="rounded-full p-1 hover:bg-muted"><X className="h-5 w-5" /></button>

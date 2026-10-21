@@ -34,28 +34,29 @@ function App() {
   const { role, setRole, setOnboardOpen } = useJiran();
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-3 py-2">
-          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-primary p-1 text-primary-foreground"><ShieldCheck className="h-4 w-4" /></span>JiranHub<span className="text-primary">AI</span></div>
+          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span>JiranHub<span className="text-primary">AI</span></div>
           <span className="hidden text-[11px] font-semibold text-muted-foreground sm:inline">Hackathon Demo Role Switcher</span>
           <div className="order-last flex w-full gap-1 rounded-xl bg-muted p-1 sm:order-none sm:ml-auto sm:w-auto">
             {roles.map((r) => (
-              <button key={r.id} onClick={() => setRole(r.id)} className={cn("flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition", role === r.id ? "bg-primary text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground")}>
+              <button key={r.id} onClick={() => setRole(r.id)} className={cn("flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition", role === r.id ? "bg-gradient-to-b from-primary to-primary/85 text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground")}>
                 <r.icon className="h-3.5 w-3.5" />{r.label}
               </button>
             ))}
           </div>
-          <button onClick={() => setOnboardOpen(true)} className="ml-auto flex items-center gap-1 rounded-lg border border-primary/40 px-2 py-1.5 text-xs font-semibold text-primary sm:ml-0"><UserPlus className="h-3.5 w-3.5" />Verify New Resident</button>
+          <button onClick={() => setOnboardOpen(true)} className="ml-auto flex items-center gap-1 rounded-lg border border-primary/40 px-2 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/5 sm:ml-0"><UserPlus className="h-3.5 w-3.5" />Verify New Resident</button>
         </div>
       </header>
 
       <main className="mx-auto flex max-w-5xl items-start justify-center gap-6 sm:p-6">
-        <div className="relative h-[calc(100vh-92px)] w-full max-w-[420px] overflow-hidden bg-background sm:h-[820px] sm:rounded-[2.5rem] sm:border-8 sm:border-foreground sm:shadow-2xl">
-          <div className="flex items-center justify-between border-b bg-card px-4 py-2 text-xs">
+        <div className="relative flex h-[calc(100vh-92px)] w-full max-w-[420px] flex-col overflow-hidden bg-background sm:h-[820px] sm:rounded-[2.5rem] sm:border-8 sm:border-foreground sm:shadow-elegant">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-6 w-32 -translate-x-1/2 rounded-b-3xl bg-foreground sm:block" />
+          <div className="flex items-center justify-between border-b bg-card/90 px-4 py-2 text-xs backdrop-blur sm:pt-9">
             <span className="font-semibold">{roles.find((r) => r.id === role)!.sub}</span>
             <Pill tone="success"><ShieldCheck className="h-3 w-3" />Elmina Green · Precinct A</Pill>
           </div>
-          <div key={role} className="h-[calc(100%-37px)] animate-in fade-in">
+          <div key={role} className="min-h-0 flex-1 animate-in fade-in">
             {role === "resident" && <ResidentView />}
             {role === "admin" && <AdminView />}
             {role === "guard" && <GuardView />}

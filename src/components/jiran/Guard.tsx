@@ -19,7 +19,7 @@ export function GuardView() {
   useEffect(() => {
     if (!live) return;
     let i = 0;
-    const t = setInterval(() => { const v = traffic[i++ % traffic.length]; addGate({ ...v, seconds: +(1.6 + Math.random() * 1.2).toFixed(1) }); }, 7000);
+    const t = setInterval(() => { const v = traffic[i++ % traffic.length]!; addGate({ ...v, seconds: +(1.6 + Math.random() * 1.2).toFixed(1) }); }, 7000);
     return () => clearInterval(t);
   }, [live]); // eslint-disable-line react-hooks/exhaustive-deps
   const vacant = houses.filter((h) => h.status === "vacation");
@@ -27,7 +27,8 @@ export function GuardView() {
 
   return (
     <div className="h-full overflow-y-auto px-4 pb-8 pt-3">
-      <div className="rounded-2xl bg-foreground p-4 text-background">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-foreground to-foreground/80 p-4 text-background shadow-elegant">
+        <div className="pointer-events-none absolute -right-8 -top-12 h-36 w-36 rounded-full bg-primary/40 blur-2xl" />
         <p className="flex items-center gap-1 text-xs opacity-70"><Radio className="h-3 w-3 animate-pulse" />Guardhouse · Auxiliary Police Patrol</p>
         <h1 className="text-lg font-bold">Precinct A Command</h1>
         <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
