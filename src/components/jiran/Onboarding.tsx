@@ -66,7 +66,7 @@ export function Onboarding() {
           <ShieldCheck className="mx-auto h-16 w-16 text-success" />
           <h4 className="text-xl font-bold">Welcome to Elmina Green Precinct A!</h4>
           <p className="text-sm text-muted-foreground">Device bound. You're now a verified resident.</p>
-          <Button className="w-full" onClick={close}>Enter JiranHub</Button>
+          <Button className="w-full" onClick={close}>Enter MyJiran</Button>
         </div>
       )}
     </Sheet>

@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JiranHub AI — Smart Township Community & Security SuperApp" },
+      { title: "MyJiran — Smart Township Community & Security SuperApp" },
       { name: "description", content: "Verified-resident alerts, privacy-first home status, fast-lane visitor QR and AI lost & found for Elmina township." },
-      { property: "og:title", content: "JiranHub AI — Township of Tomorrow" },
+      { property: "og:title", content: "MyJiran — Township of Tomorrow" },
       { property: "og:description", content: "Smart township community & security superapp prototype." },
     ],
   }),
@@ -36,7 +36,7 @@ function App() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-3 py-2">
-          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span>JiranHub<span className="text-primary">AI</span></div>
+          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span>My<span className="text-primary">Jiran</span></div>
           <span className="hidden text-[11px] font-semibold text-muted-foreground sm:inline">Hackathon Demo Role Switcher</span>
           <div className="order-last flex w-full gap-1 rounded-xl bg-muted p-1 sm:order-none sm:ml-auto sm:w-auto">
             {roles.map((r) => (

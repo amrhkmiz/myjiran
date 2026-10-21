@@ -224,7 +224,7 @@ function VisitorTab() {
         </Card>
       ) : (
         <Card className="mt-3 overflow-hidden p-0 animate-in zoom-in-95">
-          <div className="bg-primary p-4 text-primary-foreground"><p className="text-xs opacity-80">JiranHub Smart Pass · Precinct A</p><p className="text-lg font-bold">{f.name}</p></div>
+          <div className="bg-primary p-4 text-primary-foreground"><p className="text-xs opacity-80">MyJiran Smart Pass · Precinct A</p><p className="text-lg font-bold">{f.name}</p></div>
           <div className="flex flex-col items-center gap-3 p-4">
             <FakeQR seed={pass.token} />
             <div className="grid w-full grid-cols-3 gap-2 text-center text-xs">
