@@ -19,7 +19,7 @@ export function GuardView() {
   useEffect(() => {
     if (!live) return;
     let i = 0;
-    const t = setInterval(() => { const v = traffic[i++ % traffic.length]; addGate({ ...v, seconds: +(1.6 + Math.random() * 1.2).toFixed(1) }); }, 7000);
+    const t = setInterval(() => { const v = traffic[i++ % traffic.length]!; addGate({ ...v, seconds: +(1.6 + Math.random() * 1.2).toFixed(1) }); }, 7000);
     return () => clearInterval(t);
   }, [live]); // eslint-disable-line react-hooks/exhaustive-deps
   const vacant = houses.filter((h) => h.status === "vacation");

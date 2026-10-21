@@ -14,7 +14,7 @@ const SAMPLES = [
 
 export function AdminView() {
   const { applicants, approve, addNotice } = useJiran();
-  const [text, setText] = useState(SAMPLES[1]);
+  const [text, setText] = useState<string>(SAMPLES[1] ?? "");
   const [preview, setPreview] = useState<ReturnType<typeof analyzeNotice> | null>(null);
   const [override, setOverride] = useState<Priority | null>(null);
   const final = preview ? { ...preview, priority: override ?? preview.priority } : null;
@@ -57,7 +57,7 @@ export function AdminView() {
       <Card className="space-y-3">
         <div className="flex flex-wrap gap-1">
           {["Emergency", "Event", "General"].map((l, i) => (
-            <button key={l} onClick={() => { setText(SAMPLES[i]); setPreview(null); }} className="rounded-full bg-muted px-2 py-1 text-[11px] font-semibold">Sample: {l}</button>
+            <button key={l} onClick={() => { setText(SAMPLES[i] ?? ""); setPreview(null); }} className="rounded-full bg-muted px-2 py-1 text-[11px] font-semibold">Sample: {l}</button>
           ))}
           <label className="cursor-pointer rounded-full bg-muted px-2 py-1 text-[11px] font-semibold">
             Upload .txt

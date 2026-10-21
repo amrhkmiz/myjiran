@@ -129,13 +129,13 @@ export function analyzeNotice(raw: string): Omit<Notice, "id" | "postedAt"> {
   let date: string | undefined;
   const m1 = raw.match(/(\d{1,2})\s*(?:st|nd|rd|th)?\s*(jan|feb|mar|apr|may|mei|jun|jul|aug|ogos|sep|oct|okt|nov|dec|dis)[a-z]*/i);
   const m2 = raw.match(/(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/);
-  if (m1) date = `2026-${months[m1[2].toLowerCase()]}-${m1[1].padStart(2, "0")}`;
-  else if (m2) date = `2026-${m2[2].padStart(2, "0")}-${m2[1].padStart(2, "0")}`;
+  if (m1) date = `2026-${months[m1[2]!.toLowerCase()]!}-${m1[1]!.padStart(2, "0")}`;
+  else if (m2) date = `2026-${m2[2]!.padStart(2, "0")}-${m2[1]!.padStart(2, "0")}`;
   let time: string | undefined;
   const tm = raw.match(/(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm|pagi|petang|malam)/i);
   if (tm) {
-    let h = parseInt(tm[1]);
-    const pm = /pm|petang|malam/i.test(tm[3]);
+    let h = parseInt(tm[1]!);
+    const pm = /pm|petang|malam/i.test(tm[3] ?? "");
     if (pm && h < 12) h += 12;
     time = `${String(h).padStart(2, "0")}:${tm[2] ?? "00"}`;
   }
@@ -148,5 +148,5 @@ export function analyzeNotice(raw: string): Omit<Notice, "id" | "postedAt"> {
       : priority === "Event"
         ? `${title} on ${date ?? "a date TBC"}${time ? " at " + time : ""}${loc ? ", " + loc[1] : ""}. All residents invited.`
         : `General notice: ${title}.`;
-  return { title, summary, priority, date, time, location: loc?.[1] };
+  return { title, summary, priority, ...(date ? { date } : {}), ...(time ? { time } : {}), ...(loc?.[1] ? { location: loc[1] } : {}) };
 }
