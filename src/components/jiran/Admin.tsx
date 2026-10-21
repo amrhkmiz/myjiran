@@ -21,7 +21,8 @@ export function AdminView() {
 
   return (
     <div className="h-full overflow-y-auto px-4 pb-8 pt-3">
-      <div className="rounded-2xl bg-foreground p-4 text-background">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-foreground to-foreground/80 p-4 text-background shadow-elegant">
+        <div className="pointer-events-none absolute -right-8 -top-12 h-36 w-36 rounded-full bg-primary/40 blur-2xl" />
         <p className="text-xs opacity-70">JMB / RA Admin · Precinct Chairman</p>
         <h1 className="text-lg font-bold">Tuan Haji Rosli</h1>
         <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
