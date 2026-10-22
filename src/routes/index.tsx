@@ -36,8 +36,8 @@ function App() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-3 py-2">
-          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span>My<span className="text-primary">Jiran</span></div>
-          <span className="hidden text-[11px] font-semibold text-muted-foreground sm:inline">Hackathon Demo Role Switcher</span>
+          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span>My{"\n"}<span className="text-primary">Jiran</span></div>
+          <span className="hidden text-[11px] font-semibold text-muted-foreground sm:inline">Neighbourhood Communication &amp; Community Management</span>
           <div className="order-last flex w-full gap-1 rounded-xl bg-muted p-1 sm:order-none sm:ml-auto sm:w-auto">
             {roles.map((r) => (
               <button key={r.id} onClick={() => setRole(r.id)} className={cn("flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition", role === r.id ? "bg-gradient-to-b from-primary to-primary/85 text-primary-foreground shadow" : "text-muted-foreground hover:text-foreground")}>
