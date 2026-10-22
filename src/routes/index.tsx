@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Building2, Home, Shield, ShieldCheck, UserPlus, Zap } from "lucide-react";
+import logoAsset from "@/assets/myjiran-logo.png.asset.json";
 import { JiranProvider, useJiran, type Role } from "@/lib/jiran-store";
 import { ResidentView } from "@/components/jiran/Resident";
 import { AdminView } from "@/components/jiran/Admin";
@@ -36,7 +37,7 @@ function App() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-3 py-2">
-          <div className="flex items-center gap-1.5 font-extrabold"><span className="rounded-lg bg-gradient-to-br from-primary to-primary-glow p-1 text-primary-foreground shadow-elegant"><ShieldCheck className="h-4 w-4" /></span><span>My<span className="text-primary">Jiran</span></span></div>
+          <img src={logoAsset.url} alt="MyJiran" className="h-9 w-auto shrink-0" />
           <span className="hidden text-[11px] font-semibold text-muted-foreground sm:inline">Neighbourhood Communication &amp; Community Management</span>
           <div className="order-last flex w-full gap-1 rounded-xl bg-muted p-1 sm:order-none sm:ml-auto sm:w-auto">
             {roles.map((r) => (
